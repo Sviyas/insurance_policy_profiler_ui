@@ -26,27 +26,27 @@ export default function Header() {
         <div>
           <svg
             xmlns='http://www.w3.org/2000/svg'
-            shape-rendering='geometricPrecision'
-            text-rendering='geometricPrecision'
-            image-rendering='optimizeQuality'
-            fill-rule='evenodd'
-            clip-rule='evenodd'
+            shapeRendering='geometricPrecision'
+            textRendering='geometricPrecision'
+            imageRendering='optimizeQuality'
+            fillRule='evenodd'
+            clipRule='evenodd'
             viewBox='0 0 512 512.337'
             className='h-7 w-7 hover:cursor-pointer'
           >
             <path
               fill='#194794'
-              fill-rule='nonzero'
+              fillRule='nonzero'
               d='M318.647 319.401c17.395 38.715 58.464 45.55 93.095 52.245C462.398 381.432 512 429.266 512 483.478v22.094c0 3.725-3.04 6.765-6.775 6.765H6.775c-3.735 0-6.775-3.04-6.775-6.765v-19.988c0-65.14 52.682-103.616 105.911-110.739 38.724-5.175 70.951-10.431 84.581-57.241 3.527 3.089 7.233 6.208 11.008 9.566 35.277 31.363 75.025 32.724 109.01-.049 2.792-2.703 5.524-5.246 8.137-7.72z'
             />
             <path
               fill='#D2A75F'
-              fill-rule='nonzero'
+              fillRule='nonzero'
               d='M318.647 319.411c9.1 20.247 24.677 31.781 42.409 39.122-59.984 44.01-142.797 41.466-204.49 3.855 18.687-10.064 28.045-24.638 33.907-44.795 3.526 3.09 7.242 6.21 11.027 9.577 35.277 31.363 75.025 32.724 109.01-.049 2.792-2.703 5.524-5.246 8.137-7.71z'
             />
             <path
               fill='#DBB26F'
-              fill-rule='nonzero'
+              fillRule='nonzero'
               d='M259.328 391.058c-35.873.159-71.955-9.895-102.762-28.67 18.617-10.024 28.214-24.826 33.916-44.795 3.537 3.09 7.233 6.21 11.018 9.577 18.528 16.472 38.307 24.667 57.828 23.992v39.896z'
             />
             <path
