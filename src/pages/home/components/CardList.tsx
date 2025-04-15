@@ -5,9 +5,9 @@ export interface ICardList {
 
 function Card({ text, count }: ICardList) {
   return (
-    <div className='w-[360px] bg-white p-4 flex flex-col gap-3'>
-      <p className='text-xl poppins-bold text-black'>{count}</p>
-      <p className='text-gray-500'>{text}</p>
+    <div className='w-[360px] min-h-[128px] bg-white p-4 flex flex-col gap-3'>
+      <p className='lg:text-xl poppins-bold text-black'>{count}</p>
+      <p className='text-gray-500 lg:text-[16px] text-sm'>{text}</p>
     </div>
   );
 }

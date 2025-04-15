@@ -1,6 +1,7 @@
 import { AgGridReact } from 'ag-grid-react';
 import 'ag-grid-community/styles/ag-theme-alpine.css';
 import { ColDef, ModuleRegistry, AllCommunityModule } from 'ag-grid-community';
+import Loader from '../../../components/Loader';
 ModuleRegistry.registerModules([AllCommunityModule]);
 
 export interface PoliciesListProps {
@@ -12,7 +13,15 @@ export interface PoliciesListProps {
   name: string;
 }
 
-export default function Tables({ data, searchKey }: { data: PoliciesListProps[]; searchKey?: string }) {
+export default function Tables({
+  data,
+  searchKey,
+  isLoading
+}: {
+  data: PoliciesListProps[];
+  searchKey?: string;
+  isLoading: boolean;
+}) {
   const searchRowData = data
     .filter(
       d =>
@@ -59,14 +68,19 @@ export default function Tables({ data, searchKey }: { data: PoliciesListProps[];
   ];
 
   const defaultColDef = {
-    flex: 1
+    flex: 1,
+    minWidth: 100
   };
 
   const validRows = searchRowData.length > 1 ? searchRowData : rowData;
 
   return (
-    <div className='h-[350px] '>
-      <AgGridReact rowData={validRows} columnDefs={colDefs} defaultColDef={defaultColDef} />
+    <div
+      className={`lg:h-[350px] lg:w-full h-[400px] w-full overflow-x-auto ${
+        isLoading ? 'flex items-center justify-center' : ''
+      }`}
+    >
+      {isLoading ? <Loader /> : <AgGridReact rowData={validRows} columnDefs={colDefs} defaultColDef={defaultColDef} />}
     </div>
   );
 }

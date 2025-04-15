@@ -17,9 +17,9 @@ export default function Search({
       />
       <button
         type='button'
-        className='h-10 w-[200px] bg-green-secondary hover:cursor-pointer text-white poppins-bold rounded'
+        className='lg:p-3 text-[12px] p-2 w-[200px] bg-green-secondary hover:cursor-pointer text-white poppins-bold rounded'
         onClick={() => {
-          return window.alert('Current Not Allowed');
+          return window.alert('Currently Not Allowed');
         }}
       >
         Add New Policy

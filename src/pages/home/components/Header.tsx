@@ -1,6 +1,6 @@
-import notification from '../../../../public/notification.svg';
+import notification from './../../../../public/notification.svg';
 
-export default function Header() {
+export default function Header({ setMenu }: { setMenu: React.Dispatch<React.SetStateAction<boolean>> }) {
   const currentHours = new Date().getHours();
 
   let greetMessage = '';
@@ -23,7 +23,14 @@ export default function Header() {
         <div>
           <img src={notification} className='h-7 w-7 hover:cursor-pointer' />
         </div>
-        <div>
+        <div
+          onClick={e => {
+            e.stopPropagation();
+            setMenu(prev => {
+              return !prev;
+            });
+          }}
+        >
           <svg
             xmlns='http://www.w3.org/2000/svg'
             shapeRendering='geometricPrecision'

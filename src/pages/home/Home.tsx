@@ -16,14 +16,18 @@ interface IInsurancePoliciesListProps {
 export default function Home() {
   const [policies, setPolicies] = useState<IInsurancePoliciesListProps>();
   const [searchKey, setSearchKey] = useState<string>();
+  const [isLoading, setLoading] = useState<boolean>(false);
+  const [isMenu, setMenu] = useState<boolean>(false);
 
   const fetchPolicies = async () => {
     try {
+      setLoading(true);
       const data = await fetchInsuranceList();
 
       const result = data.data as IInsurancePoliciesListProps;
 
       setPolicies(result);
+      setLoading(false);
     } catch (error) {
       console.log('failed to fetch API Data', error);
     }
@@ -49,17 +53,17 @@ export default function Home() {
   ];
 
   return (
-    <div className='flex bg-[#f6f6f6] h-screen gap-5 items-center px-3'>
-      <Sidebar />
-      <div className='w-7xl h-full p-5'>
-        <div className='h-full w-full flex flex-col gap-7'>
-          <Header />
+    <div className='flex bg-[#f6f6f6]  lg:h-screen lg:gap-5 items-center lg:px-3'>
+      <Sidebar isMenu={isMenu} setMenu={setMenu} />
+      <div className='lg:w-7xl lg:h-full p-5 min-w-2xs'>
+        <div className='lg:h-full lg:w-full flex flex-col gap-7'>
+          <Header setMenu={setMenu} />
 
           <CardList cards={cardList} />
 
           <Search setSearchKey={setSearchKey} />
 
-          <Tables data={policies?.rows || []} searchKey={searchKey} />
+          <Tables data={policies?.rows || []} searchKey={searchKey} isLoading={isLoading} />
         </div>
       </div>
     </div>
